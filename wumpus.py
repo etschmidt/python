@@ -8,7 +8,7 @@ def start_hunt():
 
 	print('''
 		You awake in the dread Wumpus lair
-		The stench of death in rank in the air
+		The stench of death is rank in the air
 		Hunt the Wumpus; he is hunting you;
 		Kill the Wumpus, ere he kills you!
 		''')
@@ -23,12 +23,25 @@ def set_room_options():
 	global option_3
 	option_3 = room_options[2]
 
+#Move or shoot
+
+def move_or_shoot():
+	global move_or_shoot
+	move_or_shoot = input('''
+		Do you want to move to another room or shoot your arrow?
+		(M/S)
+		''')
+
+	if move_or_shoot = 'M'
+
+
 #choose the next room to move
 def choose_room():
 
 	global room_choice
 	room_choice = int(input('''
-		Which room to go next? {room_one}, {room_two}, {room_three}
+		Choose a room: {room_one}, {room_two}, {room_three} 
+
 		'''.format(room_one=str(option_1), 
 							 room_two=str(option_2), 
 							 room_three=str(option_3)
@@ -41,6 +54,7 @@ def choose_room():
 		print('''
 			Invalid room choice \
 			''')
+		choose_room()
 		
 #move to new room
 def move_room():
