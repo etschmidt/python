@@ -56,7 +56,10 @@ students = [steve, alice, tyler]
 #   - print out the student's tests 
 
 for x in students:
-	
+	print(x["name"])
+	print(x["homework"])
+	print(x["quizzes"])
+	print(x["tests"])
 
 # 5. Write a function to calculate the average of a list
 #   a. Define a function called average() that has one argument, numbers (which will be a list)
@@ -64,6 +67,12 @@ for x in students:
 #   c. Divide total by the length of the numbers list (use the built-in Python len() function)
 #   d. Return the result 
 
+def average(numbers):
+	total = sum(numbers)
+	length = len(numbers)
+	return (total / length)
+
+average([1,2,3,4,5])
 
 # 6. Write a function to calculate the weighted average score for a student
 #   a. Define a function called get_weighted_average() that takes one argument: student (a dictionary)
