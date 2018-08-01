@@ -27,6 +27,8 @@ def start_hunt():
 
 # initialize room options
 def set_room_options():
+
+	global room_options
 	room_options = sample(range(1,21), 3)
 	global option_1
 	option_1 = room_options[0]
@@ -71,7 +73,7 @@ def choose_room():
 		return room_choice
 	else:
 		print('''
-			Invalid room choice \
+			That's a wall, dumbass \
 			''')
 		choose_room()
 		
@@ -81,12 +83,27 @@ def move_room():
 	global current_room
 	current_room = room_choice
 
+	if current_room == wumpus_room:
+		print('''
+			You found the Wumpus!
+			He attacks...
+
+			You die a grusome, painful death
+			''')
+		hunting = False
+
 	set_room_options()
 
 	print('''
 		You are now in Room {room}
 		This room smells worse than the last...
 		'''.format(room = current_room))
+
+	if wumpus_room in room_options:
+		print('''
+			The wumpus is near
+			He smells your fear...
+			''')
 
 #shoot into next room
 def shoot_arrow():
@@ -113,13 +130,14 @@ set_room_options()
 while hunting == True:
 
 	move_or_shoot()
-	choose_room()
-	if action == 'M':
-		move_room()
-	elif action == 'S':
-		shoot_arrow()
+	if action.upper() in ['M', 'S']:
+		choose_room()
+		if action == 'M':
+			move_room()
+		elif action == 'S':
+			shoot_arrow()
 	else:
-		print('Invalid action')
+		move_or_shoot()
 
 else:
 	print('''
