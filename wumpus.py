@@ -7,15 +7,13 @@ def start_hunt():
 	global hunting
 	hunting = True
 
+	starting_positions = sample(range(1,21), 2)
+
 	global current_room
-	current_room = randint(1,21)
+	current_room = starting_positions[0]
 
 	global wumpus_room
-	wumpus_room = randint(1,21)
-	while wumpus_room == current_room:
-		wumpus_room = randint(1,21)
-	else:
-		return wumpus_room
+	wumpus_room = starting_positions[1]
 
 	global arrows
 	arrows = 5
@@ -26,6 +24,14 @@ def start_hunt():
 		Hunt the Wumpus; he is hunting you;
 		Kill the Wumpus, ere he kills you!
 		''')
+
+	print('''
+		You are in room {room}
+		'''.format(room = current_room))
+
+	print('''
+		You have {number} arrows left
+		'''.format(number = arrows))
 
 # initialize room options
 def set_room_options():
@@ -50,7 +56,6 @@ def move_or_shoot():
 		''').upper()
 
 	return move_or_shoot
-
 
 #choose the next room to take action
 def choose_room():
@@ -83,21 +88,14 @@ def choose_room():
 		
 #move to new room
 def move_room():
-	current_choice = room_choice
+	current_room = room_choice
 
 	print('''
+		You are now in Room {room}
 		This room smells worse than the last...
-		''')
+		'''.format(room = current_room))
 
 #shoot into next room
 
 #run hunt
 start_hunt()
-
-while hunting == True:
-	move_or_shoot()
-	choose_room()
-	if move_or_shoot == 'M':
-		move_room()
-	else:
-		move_or_shoot()
