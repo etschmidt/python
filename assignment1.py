@@ -84,7 +84,26 @@ fstring()
 
 # 7. Use input() to ask a user for the city they live in, and then print it back to them.
 
+def city():
+	city = input("""
+		what city do you live in?
+		""")
+	print(f'{city}')
+
+city()
+
 # 8. Build a future value calculator by using input() to get values from the user. 
 # (Make sure you convert them into integers or floats before doing any math on them.) 
 # Print out the result.
 # Hint: Future Value = Present Value x (1 + rate of return) ^ number of periods
+
+def future_calc():
+	present_value = float(input("Present Value: "))
+	rate_of_return = float(input("Rate of Return: "))
+	periods = float(input("Number of Periods: "))
+
+	future_value = present_value * ((1 + rate_of_return) ** periods)
+
+	print(future_value)
+
+future_calc()
