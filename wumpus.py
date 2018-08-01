@@ -61,6 +61,13 @@ def move_or_shoot():
 		Do you want to move to another room or shoot an arrow?
 		(M/S)
 		''').upper()
+	if action.upper() in ['M', 'S']:
+		return action
+	else:
+		print('''
+			That's not a valid action
+			''')
+		move_or_shoot()
 
 #choose the next room to take action
 def choose_room():
@@ -95,7 +102,7 @@ def move_room():
 	if current_room == wumpus_room:
 		time.sleep(1)
 		print('''
-			You found the Wumpus!
+			You find the Wumpus!
 			He attacks...
 
 			You die a grusome, painful death
@@ -128,7 +135,7 @@ def shoot_arrow():
 	if room_choice == wumpus_room:
 		time.sleep(1)
 		print('''
-			You have slain the Wumpus!
+			You slay the Wumpus!
 			''')
 		hunting = False
 	else:
