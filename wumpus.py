@@ -85,6 +85,12 @@ def move_room():
 		'''.format(room = current_room))
 
 #shoot into next room
+def shoot_arrow():
+	
+	arrows =- 1
+	print('''
+		The arrow falls to the ground
+		''')
 
 #run hunt
 start_hunt()
@@ -92,9 +98,13 @@ set_room_options()
 while hunting == True:
 
 	move_or_shoot()
-
-	if action == 'm':
-		choose_room()
+	choose_room()
+	if action == 'M':
+		move_room()
+	elif action == 'S':
+		shoot_arrow()
+	else:
+		print('Invalid action')
 
 else:
 	print('''
