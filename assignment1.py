@@ -1,5 +1,5 @@
 # Intro to Programming Using Python - Assignment #1
-# Completed by:
+# Completed by: Ethan T. Schmidt
 
 # 1. Print out the following text: 
 # You've reached [your name]. 
