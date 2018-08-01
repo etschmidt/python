@@ -1,5 +1,5 @@
 # Intro to Programming Using Python - Assignment #2
-# Completed by: 
+# Completed by: Ethan T. Schmidt
 
 
 # 1. Create three dictionaries:
@@ -9,6 +9,11 @@
 #   - The other keys should be empty lists (we'll fill them in next)
 #   - Make sure to assign each dictionary to a variable so you can refer to them individually later (eg. steve, alice and tyler)
 
+steve = {"name":"steve", "homework":[], "quizzes":[], "tests":[]}
+alice = {"name":"alice", "homework":[], "quizzes":[], "tests":[]}
+tyler = {"name":"tyler", "homework":[], "quizzes":[], "tests":[]}
+
+#print(steve)
 
 # 2. Now fill in the dictionaries above with the following scores:
 # Steve
@@ -24,9 +29,25 @@
 #   Quizzes: 0, 75, 78
 #   Tests: 100, 100
 
+steve["homework"] = [90, 97, 75, 92]
+steve["quizzes"] = [88, 40, 94]
+steve["tests"] = [75, 90]
+
+alice["homework"] = [100, 92, 98, 100]
+alice["quizzes"] = [82, 83, 91]
+alice["tests"] = [89, 97]
+
+tyler["homework"] = [0, 87, 75, 22]
+tyler["quizzes"] = [0, 75, 78]
+tyler["tests"] = [100, 100]
+
+#print(steve)
 
 # 3. Create a list called students that contains your three students
 
+students = [steve, alice, tyler]
+
+#print(students)
 
 # 4. For each student in your students list, print out that student's data as follows:
 #   - print out the student's name
@@ -34,6 +55,8 @@
 #   - print out the student's quizzes
 #   - print out the student's tests 
 
+for x in students:
+	
 
 # 5. Write a function to calculate the average of a list
 #   a. Define a function called average() that has one argument, numbers (which will be a list)
