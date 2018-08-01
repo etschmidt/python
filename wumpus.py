@@ -27,7 +27,7 @@ def start_hunt():
 		Kill the Wumpus, ere he kills you!
 		''')
 
-	print(f'{wumpus_room}')
+#	print(f'{wumpus_room}')
 
 # initialize room options
 def set_room_options():
@@ -108,7 +108,7 @@ def move_room():
 		time.sleep(1)
 		print('''
 			You are now in Room {room}
-			
+
 			This room smells worse than the last...
 			'''.format(room = current_room))
 
