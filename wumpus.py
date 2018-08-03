@@ -6,7 +6,7 @@ from random import sample
 global hunting
 hunting = True
 
-starting_positions = sample(range(1,15), 2)
+starting_positions = sample(range(1,10), 2)
 
 global current_room
 current_room = starting_positions[0]
@@ -15,7 +15,7 @@ global wumpus_room
 wumpus_room = starting_positions[1]
 
 global arrows
-arrows = 5
+arrows = 2
 
 def start_hunt():
 	
@@ -27,13 +27,19 @@ def start_hunt():
 		Kill the Wumpus, ere he kills you!
 		''')
 
+	if wumpus_room in room_options:
+			time.sleep(1)
+			print('''
+				The wumpus is near
+				He smells your fear...
+				''')
 #	print(f'{wumpus_room}')
 
 # initialize room options
 def set_room_options():
 
 	global room_options
-	room_options = sample(range(1,15), 3)
+	room_options = sample(range(1,10), 3)
 	global option_1
 	option_1 = room_options[0]
 	global option_2	
@@ -131,6 +137,7 @@ def shoot_arrow():
 	
 	global arrows
 	global hunting 
+	global wumpus_room
 
 	if room_choice == wumpus_room:
 		time.sleep(1)
@@ -138,12 +145,19 @@ def shoot_arrow():
 			You slay the Wumpus!
 			''')
 		hunting = False
+	elif wumpus_room in room_options:
+		time.sleep(1)
+		print('''
+			You have scared the Wumpus and he scurries away!
+			''')
+		arrows = arrows - 1
+		while wumpus_room in room_options or wumpus_room == current_room:
+			wumpus_room = sample(range(1,10), 1)[0]
 	else:
 		time.sleep(1)
 		print('''
 			The arrow falls to the ground
 			''')
-		
 		arrows = arrows - 1
 
 		if arrows < 1:
@@ -157,8 +171,10 @@ def shoot_arrow():
 			hunting = False
 
 #run hunt
-start_hunt()
+
 set_room_options()
+start_hunt()
+
 while hunting == True:
 
 	move_or_shoot()
