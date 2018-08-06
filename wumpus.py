@@ -171,7 +171,6 @@ def shoot_arrow():
 			hunting = False
 
 #run hunt
-
 set_room_options()
 start_hunt()
 
